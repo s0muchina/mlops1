@@ -3,4 +3,5 @@ scikit-learn>=1.4.1
 matplotlib
 seaborn
 numpy
+setup.py
 toml
