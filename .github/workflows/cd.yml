@@ -1,4 +1,4 @@
-name: WineTaste
+name: wineTaste
 on: [push]
 jobs:
   train-and-report:
@@ -11,15 +11,14 @@ jobs:
       #   with:
       #     node-version: '16'
       - uses: actions/setup-python@v4
-          with:
-      python-version: '3.x'
-      - uses: iterative/setup-cml@v1
+    		with:
+    	    python-version: '3.x'
+      - uses: iterative/setup-wineTaste@v1
       - uses: actions/checkout@v3
       - name: Train model
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
-          pip install .
           python train.py  # generate plot.png
       - name: Create CML report
         env:
