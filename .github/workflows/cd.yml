@@ -10,15 +10,14 @@ jobs:
       # - uses: actions/setup-node@v2
       #   with:
       #     node-version: '16'
-      # - uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.x'
+      - uses: actions/setup-python@v4
+          with:
+      python-version: '3.x'
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v3
       - name: Train model
         run: |
           # Your ML workflow goes here
-          pip install --upgrade setuptools
           pip install -r requirements.txt
           pip install .
           python train.py  # generate plot.png
