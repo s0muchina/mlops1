@@ -7,9 +7,7 @@ import numpy as np
 # Set random seed
 seed = 42
 
-################################
-########## DATA PREP ###########
-################################
+##DATA PREPARATION##
 
 # Load in the data
 df = pd.read_csv("winecon.csv")
@@ -18,9 +16,9 @@ df = pd.read_csv("winecon.csv")
 y = df.pop("quality")
 X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=seed)
 
-#################################
-########## MODELLING ############
-#################################
+
+## MODELLING ##
+
 
 # Fit a model on the train section
 from sklearn.ensemble import RandomForestRegressor 
@@ -38,9 +36,8 @@ with open("metrics.txt", 'w') as outfile:
         outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
 
-##########################################
-##### PLOT FEATURE IMPORTANCE ############
-##########################################
+## PLOT FEATURE IMPORTANCE ##
+
 # Calculate feature importance in random forest
 importances = regr.feature_importances_
 labels = df.columns
@@ -62,9 +59,7 @@ plt.savefig("feature_importance.png",dpi=120)
 plt.close()
 
 
-##########################################
-############ PLOT RESIDUALS  #############
-##########################################
+## PLOT RESIDUALS  ##
 
 y_pred = regr.predict(X_test) + np.random.normal(0,0.25,len(y_test))
 y_jitter = y_test + np.random.normal(0,0.25,len(y_test))
