@@ -10,7 +10,7 @@ seed = 42
 ##DATA PREPARATION##
 
 # Load in the data
-df = pd.read_csv("winecon.csv")
+df = pd.read_csv("data/winecon.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
